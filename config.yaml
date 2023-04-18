@@ -23,7 +23,7 @@ mysql:
   host: 192.168.60.120 # 服务器地址
   port: "3306" # 端口
   config: charset=utf8mb4&parseTime=True&loc=Local # 其他配置
-  db_name: sakila # 数据库名称
+  db_name: gin_template # 数据库名称
   username: root # 数据库用户名
   password: "root" # 数据库密码
   prefix: "t_" # 全局表前缀，单独定义 TableName 则不生效

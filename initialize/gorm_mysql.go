@@ -3,9 +3,12 @@ package initialize
 import (
 	"backup/global"
 	"backup/initialize/internal"
+	"backup/model"
 	"fmt"
+	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"os"
 )
 
 // GormMysql 初始化Mysql数据库
@@ -35,6 +38,18 @@ func GormMysql() *gorm.DB {
 		sqlDB.SetMaxOpenConns(m.MaxOpenConns)
 
 		fmt.Println(" gorm link mysql success")
+		initMySqlTables(db)
 		return db
+	}
+}
+
+// 数据库初始化
+func initMySqlTables(db *gorm.DB) {
+	err := db.AutoMigrate(
+		model.User{},
+	)
+	if err != nil {
+		global.App.ConfigZap.Error("migrate table failed", zap.Any("err", err))
+		os.Exit(0)
 	}
 }
