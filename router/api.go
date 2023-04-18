@@ -20,9 +20,10 @@ func SetApiGroupRoutes(r *gin.RouterGroup) {
 		}
 		utils.Success(c, "success")
 	})
-	authRouter := r.Group("").Use(middlewares.JWTAuth(utils.AppGuardName)){
+	authRouter := r.Group("").Use(middlewares.JWTAuth(utils.AppGuardName))
+	{
 		authRouter.POST("/auth/info", func(c *gin.Context) {
-			utils.Success(c,"success")
+			utils.Success(c, "success")
 		})
 	}
 }
