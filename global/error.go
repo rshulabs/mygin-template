@@ -10,6 +10,7 @@ type CustomError struct {
 type CustomErrors struct {
 	BusinessError  CustomError
 	ValidatorError CustomError
+	JWTError       CustomError
 }
 
 var Errors = CustomErrors{
@@ -18,5 +19,8 @@ var Errors = CustomErrors{
 	},
 	ValidatorError: CustomError{
 		42000, "请求参数错误",
+	},
+	JWTError: CustomError{
+		401000, "未授权登录",
 	},
 }

@@ -41,3 +41,8 @@ func ValidatorFail(c *gin.Context, msg string) {
 func BusinessFail(c *gin.Context, msg string) {
 	Fail(c, global.Errors.BusinessError.ErrorCode, msg)
 }
+
+// JWTFail jwt验证失败
+func JWTFail(c *gin.Context) {
+	FailByError(c, global.Errors.JWTError)
+}

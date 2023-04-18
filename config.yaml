@@ -55,3 +55,8 @@ redis:
   db: 0
   addr: localhost:6379
   password: ""
+
+# jwt
+jwt:
+  secret: ;d/WOIx0:C}@qGHcpl'XuK2a+]FKS#SfS6$vr%g:Rm/XR6$*>:]`<{B^}v/T`Ow0 # 随机字符
+  expire: 86400 # 签发时间
