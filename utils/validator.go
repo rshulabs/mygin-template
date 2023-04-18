@@ -1,5 +1,11 @@
 package utils
 
+/*
+验证器模块
+1.定义一个验证器规则接口，实现一个规则map方法
+2.定义验证错误信息方法，得到错误验证
+3.扩展自定义验证器，启动初始化
+*/
 import (
 	"github.com/go-playground/validator/v10"
 	"regexp"
