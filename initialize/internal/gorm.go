@@ -38,7 +38,7 @@ func (g *_gorm) Config(prefix string, singular bool) *gorm.Config {
 		LogLevel:      logger.Warn,
 		Colorful:      true,
 	})
-
+	// 日志级别配置
 	var logMode DBBASE
 	switch global.App.Config.App.DbType {
 	case "mysql":
