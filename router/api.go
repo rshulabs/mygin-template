@@ -12,7 +12,7 @@ func SetApiGroupRoutes(r *gin.RouterGroup) {
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "hello world")
 	})
-	r.POST("/register", func(c *gin.Context) {
+	r.POST("/user/register", func(c *gin.Context) {
 		var form system.Register
 		if err := c.ShouldBindJSON(&form); err != nil {
 			utils.ValidatorFail(c, utils.GetErrorMsg(form, err))
@@ -26,4 +26,5 @@ func SetApiGroupRoutes(r *gin.RouterGroup) {
 			utils.Success(c, "success")
 		})
 	}
+	r.Use(middlewares.Cors())
 }
