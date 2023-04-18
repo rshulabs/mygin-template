@@ -43,6 +43,14 @@ func RunServer() {
 }
 func setRouter() *gin.Engine {
 	r := gin.Default()
+	/* 静态资源处理 */
+	// 前端静态资源
+	r.StaticFile("/", "./static/dist/index.html")
+	r.Static("/assets", "./static/dist/assets")
+	r.StaticFile("/favicon.ico", "./static/dist/favicon.ico")
+	// 其他静态资源
+	r.Static("/public", "./static")
+	r.Static("/storage", "./storage/app/public")
 	apiGroup := r.Group("/api")
 	router.SetApiGroupRoutes(apiGroup)
 	return r
