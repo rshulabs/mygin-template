@@ -22,7 +22,7 @@ func GormMysql() *gorm.DB {
 		SkipInitializeWithVersion: false,   // 根据版本自动配置
 	}
 
-	// 打开数据库连接
+	// 打开数据库连接 驱动 gorm配置
 	db, err := gorm.Open(mysql.New(mysqlConfig), internal.Gorm.Config(m.Prefix, m.Singular))
 
 	// 将引擎设置为我们配置的引擎，并设置每个连接的最大空闲数和最大连接数。
@@ -34,7 +34,7 @@ func GormMysql() *gorm.DB {
 		sqlDB.SetMaxIdleConns(m.MaxIdleConns)
 		sqlDB.SetMaxOpenConns(m.MaxOpenConns)
 
-		fmt.Println("====3-gorm====: gorm link mysql success")
+		fmt.Println(" gorm link mysql success")
 		return db
 	}
 }
