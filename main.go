@@ -21,7 +21,8 @@ func main() {
 	logger.Info("init start ", zap.String("zap_log", "zap_log"))
 	// 数据库初始化
 	db = initialize.Gorm()
-
+	// 其他配置初始化
+	initialize.OtherInit()
 	// 启动服务
 	core.RunServer()
 }
